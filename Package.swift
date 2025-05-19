@@ -73,6 +73,7 @@ let package = Package(
         .library(name: "Gtk", type: libraryType, targets: ["Gtk"]),
         .library(name: "Gtk3", type: libraryType, targets: ["Gtk3"]),
         .executable(name: "GtkExample", targets: ["GtkExample"]),
+        .executable(name: "MetalExample", targets: ["MetalExample"]),
         // .library(name: "CursesBackend", type: libraryType, targets: ["CursesBackend"]),
         // .library(name: "QtBackend", type: libraryType, targets: ["QtBackend"]),
         // .library(name: "LVGLBackend", type: libraryType, targets: ["LVGLBackend"]),
@@ -223,6 +224,11 @@ let package = Package(
         .target(
             name: "Gtk3CustomWidgets",
             dependencies: ["CGtk3"]
+        ),
+        .executableTarget(
+            name: "MetalExample",
+            dependencies: ["SwiftCrossUI", "AppKitBackend"],
+            path: "Examples/MetalExample"
         ),
         .macro(
             name: "HotReloadingMacrosPlugin",
